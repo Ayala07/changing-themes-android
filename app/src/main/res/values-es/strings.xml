@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Cambios de temas</string>
+    <string name="rbd1Name">Claro</string>
+    <string name="rbd2Name">Azul Oscuro</string>
+    <string name="rbd3Name">Oscuro</string>
+</resources>
