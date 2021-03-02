@@ -3,4 +3,5 @@
     <string name="rbd1Name">Ligth</string>
     <string name="rbd2Name">Dark blue</string>
     <string name="rbd3Name">Dark</string>
+    <string name="btnString">Change</string>
 </resources>

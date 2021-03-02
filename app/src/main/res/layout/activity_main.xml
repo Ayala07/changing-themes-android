@@ -10,39 +10,22 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="320dp"
         android:text="Hello World!"
-        app:layout_constraintBottom_toTopOf="@+id/radioGroup"
+        app:layout_constraintBottom_toTopOf="@+id/btnChangeTheme"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <RadioGroup
-        android:id="@+id/radioGroup"
+    <Button
+        android:id="@+id/btnChangeTheme"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="400dp"
+        android:layout_marginBottom="70dp"
+        android:text="@string/btnString"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/textView2"
-        app:layout_constraintStart_toStartOf="@+id/textView2">
-
-        <RadioButton
-            android:id="@+id/rbdLigth"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/rbd1Name" />
-
-        <RadioButton
-            android:id="@+id/rbdBlueDark"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/rbd2Name" />
-
-        <RadioButton
-            android:id="@+id/rbdDark"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/rbd3Name" />
-    </RadioGroup>
+        app:layout_constraintStart_toStartOf="@+id/textView2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
