@@ -1,6 +1,7 @@
 package com.example.cambiosdetemas
 
 import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
@@ -13,14 +14,18 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        btnChangeTheme.setOnClickListener { changeTheme() }
+        checkTheme()
+
+        btnChangeTheme.setOnClickListener { choseThemeDialog() }
     }
 
-    private fun changeTheme(){
+    private fun choseThemeDialog(){
+
         val builder = AlertDialog.Builder(this)
         builder.setTitle(getString(R.string.btnString))
         val styles = arrayOf(getString(R.string.rbd1Name),getString(R.string.rbd2Name), getString(R.string.rbd3Name))
-        val checkItem = 0
+        val checkItem = MyPreferences(this).darkMode
+
         builder.setSingleChoiceItems(styles,checkItem){dialog, which ->
             when(which){
                 0 ->{
@@ -42,9 +47,10 @@ class MainActivity : AppCompatActivity() {
                     dialog.dismiss()
                 }
             }
-            val dialog = builder.create()
-            dialog.show()
         }
+
+        val dialog = builder.create()
+        dialog.show()
     }
 
     class MyPreferences(context: Context?){
@@ -55,5 +61,22 @@ class MainActivity : AppCompatActivity() {
 
         var darkMode = preferences.getInt(DARK_STATUS,0)
         set(value) = preferences.edit().putInt(DARK_STATUS,value).apply()
+    }
+
+    private fun checkTheme(){
+        when(MyPreferences(this).darkMode){
+            0 -> {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+                delegate.applyDayNight()
+            }
+            1 -> {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+                delegate.applyDayNight()
+            }
+            2 -> {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
+                delegate.applyDayNight()
+            }
+        }
     }
 }
